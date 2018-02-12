@@ -1,0 +1,96 @@
+/*fonts*/
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P|Racing+Sans+One');
+
+/*custom properties*/
+:root {
+    --text-color: #212121;
+    --heading-color: #757575;
+}
+body {
+    color: var(--text-color);
+    font-family: 'Press Start 2P', cursive;
+}
+
+/*
+body {
+    background: linear-gradient(180deg, blue, blue 40%, red);
+}
+*/
+
+.high-wrapper-1, .mid-wrapper, .low-wrapper {
+    border: 1px solid #757575;
+    
+}
+
+/*high*/
+.high-wrapper-1 {
+    height: 20vh;
+    text-align: center;
+    line-height: 20vh;
+    font-size: 10vh;
+}
+.high-wrapper-2 {
+    height: 10vh;
+    line-height: 21px;
+    font-size: 14px;
+}
+.hangman {
+    font-size: 28px;
+    line-height: 44px;
+}
+/*mid*/
+.mid-wrapper-1 {
+    height: 57vh;
+}
+.man {
+    line-height: 57vh;
+    text-align: center;
+    display: block;
+    color: #e74c3c;
+}
+.already-guessed {
+    color: #e74c3c;
+    text-align: center;
+    line-height: 42px;
+    font-size: 14px;
+    display: block;
+    visibility: hidden;
+    border: 1px solid #e74c3c;
+    border-radius: 2px;
+}
+.mid-wrapper-2 {
+    height: 8vh;
+
+}
+.mid-wrapper-1 div {
+    border: 1px solid #757575;
+}
+.letters-to-guess {
+    display: flex;
+    justify-content: space-between;
+}
+
+.letters-to-guess a {
+    color: #e74c3c;
+    font-size: 4vh;
+    line-height: 8vh;
+    opacity: .5;
+}
+.letters-to-guess a:hover {
+    opacity: 1;
+    text-decoration: underline;
+}
+.guessed {
+    color: #95a5a6;
+    text-decoration: none;
+    background-color: #757575;
+    opacity: .5;
+}
+/*low*/
+.low-wrapper {
+    height: 5vh;
+    color: var(--text-color);
+    text-align: center;
+    line-height: 5vh;
+    font-size: 10px;
+}
