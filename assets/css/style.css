@@ -18,7 +18,7 @@ body {
 */
 
 .high-wrapper-1, .mid-wrapper, .low-wrapper {
-    border: 1px solid #757575;
+    
     
 }
 
@@ -42,7 +42,7 @@ body {
 .mid-wrapper-1 {
     height: 57vh;
 }
-.man {
+.main, .movie-title {
     line-height: 57vh;
     text-align: center;
     display: block;
@@ -63,7 +63,7 @@ body {
 
 }
 .mid-wrapper-1 div {
-    border: 1px solid #757575;
+    
 }
 .letters-to-guess {
     display: flex;
