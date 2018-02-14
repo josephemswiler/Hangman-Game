@@ -2,14 +2,18 @@
 
     var alpha = [];
     var guessedAlpha = [];
+    var correctGuessedAlpha = [];
     var guessCount = 6;
-    var movieChoices = ["Jurassic World", "Star Wars: The Force Awakens", "Avengers: Age of Ultron", "Inside Out", "Furious 7", "Minions"];
+    var winCount = 0;
+    var movieChoices = ["Jurassic World", "Star Wars", "Indiana Jones", "Wonder Woman", "Get Out", "Logan", "The Big Sick"];
     var selectedTitle = [];
     var gameOn = false;
     var charCodes = [];
-    var movieTitle = movieChoices[0]; //Math.floor(Math.random() * movieChoices.length)];
+    var movieTitle = movieChoices[Math.floor(Math.random() * movieChoices.length)];
     movieTitle = movieTitle.toLowerCase();
     var correctGuess = false;
+    var currentState = [];
+
 
 
     function createAlphabet() {
@@ -28,29 +32,31 @@
 
         function startGame() {
 
-            for (var j = 0; j < movieTitle.length - 1; j++) {
+            for (var j = 0; j < movieTitle.length; j++) {
 
                 charCodes.push(movieTitle.charCodeAt(j));
 
                 var titleLetters = document.createElement("span");
+                //if space, show, else hide character
                 if (movieTitle.charCodeAt(j) === 32) {
                     titleLetters.innerHTML = " ";
                 } else {
                     titleLetters.innerHTML = "-";
+                    selectedTitle.push(movieTitle[j]);
                 }
-                titleLetters.setAttribute("class", "letter-" + j);
+                //show non-alpha characters
+                if (movieTitle.charCodeAt(j) < 65) {
+                    titleLetters.innerHTML = movieTitle.charAt(j);
+                }
+                //number class
+                //titleLetters.setAttribute("class", "letter-" + j);
+                //letter class
+                titleLetters.setAttribute("class", "letter-" + movieTitle.charAt(j));
                 document.querySelector(".movie-title").appendChild(titleLetters);
-                selectedTitle.push(movieTitle[j]);
+
+                //console.log(selectedTitle);
                 gameOn = true;
             }
-            /*
-            if (movieTitle.indexOf(event.key) !== -1) {
-                var getClass = ("." + k)
-                getClass = getClass.toString();
-                console.log(getClass);
-                document.querySelector(getClass).innerHTML = event.key;
-            }
-            */
 
         } // /startGame
 
@@ -59,13 +65,50 @@
             document.querySelector(".main").style.display = 'none';
             startGame();
         }
+
         //check for correct guess of letter
-        for (var k = 0; k < movieTitle.length - 1; k++) {
+        for (var k = 0; k < movieTitle.length; k++) {
 
             if (event.key === movieTitle.charAt(k)) {
-                var classString = ".letter-" + movieTitle.indexOf(event.key);
-                document.querySelector(classString).innerHTML = movieTitle.charAt(k);
+                //var classString = ".letter-" + movieTitle.indexOf(event.key);
+                //document.querySelector(classString).innerHTML = movieTitle.charAt(k);
+
+                //var classString = ".letter-" + event.key;
+                //document.querySelector(classString).innerHTML = event.key;
+
+                var correctClass = document.body.querySelectorAll(".letter-" + event.key);
+
+                for (var l = 0; l < correctClass.length; l++) {
+                    correctClass[l].innerHTML = event.key;
+                    //console.log(correctClass[l]);
+                }
                 correctGuess = true;
+                correctGuessedAlpha.push(event.key);
+                //console.log(correctGuessedAlpha);
+                
+                //check if game is over
+                /*
+                for (var m = 0; m < selectedTitle.length; m++) {
+                    var isWin = correctClass[m].innerHTML
+                    if (isWin.indexOf("-") !== -1 )
+                }
+                */
+
+                var childTitles = document.querySelector(".movie-title").children;
+                for (var m = 0; m < childTitles.length; m++) {
+                    //correctClass[l].innerHTML = event.key;
+                    
+                    currentState.splice(m,1,childTitles[m].innerHTML);
+                }
+
+                if (currentState.indexOf("-") === -1) {
+                    console.log('win bruh!');
+                    winCount++
+                    document.querySelector(".win-count").innerHTML = winCount;
+                    document.querySelector(".already-guessed").innerHTML = "YOU WIN! Click here to play again!";
+                    document.querySelector(".already-guessed").style.visibility = 'visible';
+                }
+
             }
 
         }
@@ -94,7 +137,7 @@
                 document.querySelector(".main").innerHTML = "GAME OVER";
                 document.querySelector(".main").style.display = 'block';
                 document.querySelector(".movie-title").style.display = 'none';
-
+                //alert to play again?
                 //document.querySelector(".already-guessed").innerHTML = "Play Again"
                 //show answer, might want to make two divs for messages and game play
 
@@ -106,10 +149,17 @@
                 correctGuess = false;
             }
         }
+        //check if game is over
+
+
 
     } // /keyFunction
 
+
+
     document.onkeydown = keyFunction;
+
+
 
     //blinking text
     var textHidden = false;
@@ -123,7 +173,6 @@
             document.querySelector(".main").style.visibility = 'hidden';
         }
         textHidden = !textHidden;
-    }
-    //blinking text
+    } // /blinking text
 
-}())
+}()) // /function
