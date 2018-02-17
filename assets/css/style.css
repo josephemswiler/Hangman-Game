@@ -1,13 +1,16 @@
 /*fonts*/
-@import url('https://fonts.googleapis.com/css?family=Press+Start+2P|Racing+Sans+One');
 
+@import url('https://fonts.googleapis.com/css?family=Press+Start+2P|Racing+Sans+One');
 /*custom properties*/
+
 :root {
-    --text-color: #212121;
+    --text-color: #757575;
     --heading-color: #757575;
 }
+
 body {
-    color: var(--text-color);
+    color: #fff;
+    background-color: #000;
     font-family: 'Press Start 2P', cursive;
 }
 
@@ -17,37 +20,48 @@ body {
 }
 */
 
-.high-wrapper-1, .mid-wrapper, .low-wrapper {
-    
-    
-}
-
 /*high*/
+
 .high-wrapper-1 {
-    height: 20vh;
+    height: auto;
     text-align: center;
     line-height: 20vh;
     font-size: 10vh;
 }
+
 .high-wrapper-2 {
-    height: 10vh;
+    height: auto;
     line-height: 21px;
     font-size: 14px;
+    margin-top: 20px;
 }
+
 .hangman {
     font-size: 28px;
     line-height: 44px;
 }
-/*mid*/
-.mid-wrapper-1 {
-    height: 57vh;
+
+.hangman img {
+    top: 0;
+    width: 60%;
+    height: auto;
 }
-.main, .movie-title {
-    line-height: 57vh;
+
+/*mid*/
+
+.mid-wrapper-1 {
+    height: 40vh;
+    line-height: 40vh;
+    margin: 0 auto;
+}
+
+.main,
+.char-name {
     text-align: center;
     display: block;
     color: #e74c3c;
 }
+
 .already-guessed {
     color: #e74c3c;
     text-align: center;
@@ -58,39 +72,78 @@ body {
     border: 1px solid #e74c3c;
     border-radius: 2px;
 }
-.mid-wrapper-2 {
-    height: 8vh;
 
+.result {
+    color: #e74c3c;
+    text-align: center;
+    line-height: 42px;
+    font-size: 14px;
+    display: none;
+    visibility: hidden;
+    border: 1px solid #e74c3c;
+    border-radius: 2px;
 }
-.mid-wrapper-1 div {
-    
+
+.instructions {
+    color: #fff;
+    text-align: center;
+    line-height: 42px;
+    font-size: 14px;
+    display: block;
 }
+
+.reset-game {
+    background: linear-gradient(to bottom right, #e74c3c, #ff7675);
+    border: 3px solid #ff7675;
+    border-radius: 2px;
+    margin: auto;
+    margin-top: 20px;
+    line-height: 42px;
+    font-size: 14px;
+    padding: 0px 20px 0px 20px;
+}
+
+.mid-wrapper-2 {
+    width: 100vw;
+}
+
 .letters-to-guess {
     display: flex;
     justify-content: space-between;
+    color: #f9ca24;
+    width: 100%;
 }
 
 .letters-to-guess a {
-    color: #e74c3c;
-    font-size: 4vh;
-    line-height: 8vh;
-    opacity: .5;
-}
-.letters-to-guess a:hover {
+    font-size: 14px;
+    line-height: 21px;
     opacity: 1;
+}
+
+.letters-to-guess a:hover {
     text-decoration: underline;
 }
+
 .guessed {
     color: #95a5a6;
     text-decoration: none;
-    background-color: #757575;
     opacity: .5;
 }
+
 /*low*/
+
 .low-wrapper {
     height: 5vh;
     color: var(--text-color);
     text-align: center;
     line-height: 5vh;
     font-size: 10px;
+    margin-top: 20px;
+}
+
+@media (min-width: 751px) {
+    .letters-to-guess a {
+        font-size: 28px;
+        line-height: 33px;
+    }
 }

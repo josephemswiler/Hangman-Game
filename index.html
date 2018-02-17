@@ -20,23 +20,29 @@
     <!-- high -->
     <div class="row high-wrapper-1">
       <div class="col-12">
-        <span class="hangman">Hangman</span>
+        <span class="hangman">
+          <img src="assets/images/stranger-things-logo.svg" alt="stranger things logo!" />
+        </span>
       </div>
     </div>
     <div class="row high-wrapper-2">
-      <div class="col-6">
+      <div class="col-12 col-sm-6 counters">
         Guesses:
         <span class="guess-counter">6</span>
         <br/> Wins:
         <span class="win-count">0</span>
       </div>
-      <div class="col-6"><span class="already-guessed"></span></div>
+      <div class="col-12 col-sm-6">
+        <span class="instructions">Guess The Character!</span>
+        <span class="already-guessed"></span>
+        <span class="result"></span>
+      </div>
     </div>
     <!-- mid -->
     <div class="row mid-wrapper-1">
       <div class="col-12">
-        <span class="main">Press any key to get started!</span>
-        <span class="movie-title"></span>
+        <span class="main">Click or Press Key!</span>
+        <span class="char-name"></span>
       </div>
     </div>
     <div class="row mid-wrapper-2">
@@ -46,7 +52,8 @@
     </div>
     <!-- low -->
     <div class="row low-wrapper">
-      <div class="col-12">joseph emswiler</div>
+      <div class="col-12 name">joseph emswiler</div>
+      <button class="reset-game">Play</button>
     </div>
   </div>
   <!-- Game JavaScript -->
